@@ -33,8 +33,7 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
     $stmt=$dbConn->prepare($sql);
     $stmt->execute($np);
     
-    echo "<span class='update'>User was added!</span>";
-    
+    echo "<span class='update'd>User was added!</span>";
     
 }
 

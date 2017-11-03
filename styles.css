@@ -1,14 +1,19 @@
 body {
     font-family: futura;
-    
+    background-image: url("data.jpg");
+    background-color: lightgray;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-shadow: 0 0 10px rgba(255,255,255,1);
 }
 
 #container {
     text-align: center;
     margin: 0 auto;
-    color: blue;
+    color: black;
     font-family: futura;
     font-size: 1.2em;
+    text-shadow: 0 0 10px rgba(255,255,255,1);
 }
 
 p {
