@@ -53,8 +53,8 @@ $dbConn = getDatabaseConnection("heroku_ec49987c2231ba0");
                  $users = userList();
                  foreach($users as $user) {
                      echo $user['firstName'] . " " . $user['lastName'] . "<br />";
-                     echo "[<a href='updateUser.php?userId=".$user['id']."'> Update </a>] <br />";
-                     echo "[<a onclick='return confirmDelete()' href='deleteUser.php?userId=".$user['id']."'> Delete </a>] <br />";
+                     echo "[<a class='link' href='updateUser.php?userId=".$user['id']."'> Update </a>] <br />";
+                     echo "[<a class='link' onclick='return confirmDelete()' href='deleteUser.php?userId=".$user['id']."'> Delete </a>] <br />";
                  }
              ?>
         </div>

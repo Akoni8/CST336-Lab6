@@ -84,7 +84,7 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
                 <br />
                 <input type="submit" value="Add User" name="addUser">
             </form>
-            <a href="admin.php ">Back to Admin Page</a>
+            <a class="link" href="admin.php ">Back to Admin Page</a>
         </div>
         
     </body>

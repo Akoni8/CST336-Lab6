@@ -49,8 +49,8 @@ function loginProcess() {
                 Password: <input type="password" name="password" /> <br />
                 <input type="submit" name="loginForm" value="Login!"/>
             </form>
-            <a href="https://github.com/Akoni8/CST336-Lab6">GitHub</a>
-            <a href="https://morr2927-cst336-lab6.herokuapp.com">Heroku</a>
+            <a class="link" href="https://github.com/Akoni8/CST336-Lab6">GitHub</a>
+            <a class="link" href="https://morr2927-cst336-lab6.herokuapp.com">Heroku</a>
             
         </div>
             <br />

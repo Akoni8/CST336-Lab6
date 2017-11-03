@@ -91,7 +91,7 @@ function getUserInfo() {
                     <br />
                     <input type="submit" value="Update User" name="updateUser">
             </form>
-            <a href="admin.php ">Back to Admin Page</a>
+            <a class="link" href="admin.php ">Back to Admin Page</a>
         </div>
     </body>
 </html>
