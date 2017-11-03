@@ -22,3 +22,9 @@ p {
     margin: 0 auto;
     font-weight: 700;
 }
+
+.update {
+    margin: 0 auto;
+    text-align: center;
+    color: green;
+}

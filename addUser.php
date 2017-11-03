@@ -23,8 +23,6 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
              (:fName, :lName, :email, :role, :phone, :deptId)";
     $np = array();
     
-    //echo "$sql";
-    
     $np[':fName'] = $_GET['firstName'];
     $np[':lName'] = $_GET['lastName'];
     $np[':email'] = $_GET['email'];
@@ -35,7 +33,8 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
     $stmt=$dbConn->prepare($sql);
     $stmt->execute($np);
     
-    echo "User was added!";
+    echo "<span class='update'>User was added!</span>";
+    
     
 }
 
@@ -66,9 +65,9 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
                Role: 
                <select name="role">
                     <option value=""> - Select One - </option>
-                    <option value="staff">Staff</option>
-                    <option value="student">Student</option>
-                    <option value="faculty">Faculty</option>
+                    <option value="Staff">Staff</option>
+                    <option value="Student">Student</option>
+                    <option value="Faculty">Faculty</option>
                 </select>
                 <br />
                 Department: 
@@ -83,8 +82,11 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
                         }
                     ?>
                 </select>
+                <br />
                 <input type="submit" value="Add User" name="addUser">
             </form>
+            <a href="admin.php ">Back to Admin Page</a>
         </div>
+        
     </body>
 </html>

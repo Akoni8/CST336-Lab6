@@ -13,7 +13,7 @@ function getUserInfo() {
     $stmt = $dbConn->prepare($sql);
     $stmt->execute();
     $record = $stmt->fetch(PDO::FETCH_ASSOC);
-    print_r($record);
+    //print_r($record);
     
     return $record;
 
@@ -26,34 +26,30 @@ function getUserInfo() {
      
      $sql = "UPDATE User
              SET firstName = :fName,
-                 lastName  = :lName
+                 lastName  = :lName,
+                 email = :email,
+                 phone = :phone,
+                 role = :role
              WHERE id = :id";
      $np = array();
      
+     $np[':id'] = $_GET['userId'];
      $np[':fName'] = $_GET['firstName'];
      $np[':lName'] = $_GET['lastName'];
-     $np[':id'] = $_GET['userId'];
+     $np[':email'] = $_GET['email'];
+     $np[':phone'] = $_GET['phone'];
+     $np[':role'] = $_GET['role'];
+     //$np[':deptId'] = $_GET['deptId'];
      
      $stmt = $dbConn->prepare($sql);
      $stmt->execute($np);
      
-     echo "Record has been updated!";
-     
+     echo "<span class='update'>Record has been updated!</span>";
  }
-
-
  if (isset($_GET['userId'])) {
-     
     $userInfo = getUserInfo(); 
-     
-     
  }
-
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,25 +73,25 @@ function getUserInfo() {
                Role: 
                <select name="role">
                     <option value=""> - Select One - </option>
-                    <option value="Staff"  <?=($userInfo['role']=='Staff')?" selected":"" ?>  >Staff</option>
-                    <option value="Student" <?=($userInfo['role']=='Student')?" selected":"" ?>  >Student</option>
-                    <option value="Faculty" <?=($userInfo['role']=='Faculty')?" selected":"" ?>>Faculty</option>
+                    <option value="Staff"  <?=($userInfo['role']=='Staff' || $userInfo['role']=='staff')?" selected":"" ?>  >Staff</option>
+                    <option value="Student" <?=($userInfo['role']=='Student' || $userInfo['role']=='student')?" selected":"" ?>  >Student</option>
+                    <option value="Faculty" <?=($userInfo['role']=='Faculty' || $userInfo['role']=='faculty')?" selected":"" ?>>Faculty</option>
                 </select>
                 <br />
                 Department: 
                 <select name="deptId">
-                    <option value=""  > Select One </option>
-                      <?php
-                        $departments = departmentList();
-                        
-                        foreach($departments as $department) {
-                           echo "<option value='".$department['id']."'> " . $department['name']  . "</option>";  
-                        }
-                    ?>
+                    <option value="" > - Select One - </option>
+                    <option value="Computer Science"  <?=($userInfo['deptId']=='1')?" selected":"" ?>  > Computer Science</option>
+                    <option value="Statistics"  <?=($userInfo['deptId']=='2')?" selected":"" ?>  >Statistics</option>
+                    <option value="Design"  <?=($userInfo['deptId']=='3')?" selected":"" ?>  >Design</option>
+                    <option value="Economics"  <?=($userInfo['deptId']=='4')?" selected":"" ?>  >Economics</option>
+                    <option value="Drama"  <?=($userInfo['deptId']=='5')?" selected":"" ?>  >Drama</option>
+                    <option value="Biology"  <?=($userInfo['deptId']=='6')?" selected":"" ?>  >Biology</option>
                 </select>
-                <input type="submit" value="Update User" name="updateUser">
-                
+                    <br />
+                    <input type="submit" value="Update User" name="updateUser">
             </form>
+            <a href="admin.php ">Back to Admin Page</a>
         </div>
     </body>
 </html>
